@@ -1,1 +1,37 @@
-species,name
+species_name,species,espar,french_name,stems_t0,plots_t0
+Abies alba,1,61,Sapin pectiné,37285,5243
+Acer campestre,2,21C,Érable champêtre,10850,4095
+Acer pseudoplatanus,3,15S,Érable sycomore,8851,3092
+Alnus glutinosa,4,13G,Aulne glutineux,8594,1682
+Arbutus unedo,5,40,Arbousier,2902,502
+Betula pendula,6,12V,Bouleau verruqueux,17689,5354
+Carpinus betulus,7,11,Charme,62718,11856
+Castanea sativa,8,10,Châtaignier,48031,7437
+Corylus avellana,9,31,Noisetier coudrier,13250,3464
+Crataegus monogyna,10,49AM,Aubépine monogyne,5563,2584
+Fagus sylvatica,11,09,Hêtre,67843,13314
+Fraxinus excelsior,12,17C,Frêne commun,29326,7904
+Ilex aquifolium,13,49IA,Houx,2249,1024
+Larix decidua,14,63,Mélèze d'Europe,4091,698
+Picea abies,15,62,Épicéa commun,37021,5137
+Pinus halepensis,16,57A,Pin d'Alep,4712,944
+Pinus mugo,17,58,Pin à crochets,2286,319
+Pinus nigra,18,53CO+54,Pin laricio de Corse / Pin noir d'Autriche,13795,1991
+Pinus pinaster,19,51,Pin maritime,26179,3761
+Pinus sylvestris,20,52,Pin sylvestre,38237,6676
+Populus tremula,21,24,Tremble,8363,2723
+Prunus avium,22,22M,Merisier,8061,3947
+Pseudotsuga menziesii,23,64,Douglas,20182,2554
+Quercus ilex,24,06,Chêne vert,22276,2351
+Quercus petraea,25,03,Chêne sessile,64923,13028
+Quercus pubescens,26,05,Chêne pubescent,43922,6677
+Quercus pyrenaica,27,07,Chêne tauzin,2129,693
+Quercus robur,28,02,Chêne pédonculé,65614,16670
+Robinia pseudoacacia,29,14,Robinier faux acacia,11297,2039
+Salix caprea,30,25M,Saule marsault,7251,2171
+Sorbus aria,31,23AB,Alisier blanc,3943,1728
+Sorbus torminalis,32,41,Alisier torminal,3711,1980
+Tilia cordata,33,20P,Tilleul à petites feuilles,3677,1027
+Tilia platyphyllos,34,20G,Tilleul à grandes feuilles,2754,858
+Ulmus minor,35,18C,Orme champêtre,3302,1354
+other,36,04+12P+25C+73+21O+19+21M+23SO+08S+33N+25B+49SN+15P+49BS+17O+23PM+69JO+69JC+65+49PS+33G+74J+72V+25R+49FL+23PC+27C+55+56+23C+13B+18M+49PM+17F+38AU+49EA+32+34+22G+23PD+25FR+28+33B+67+59+39+49RC+77+29AF+49BO+71+29MA+49EV+29EN+22S+13C+68TG+53S+49LN+68PM+68CL+57B+68CE+49AE+36+74H+68TH+26OC+49RA+23PA+27N+49PT+29MI+26E+68CJ+23AM+29AI+18D+29CM+23F+16+37+68SV+42+23AF+66+49PL+53CA+25V+22C+68SC+20X+38AL+49RP+68PC+68CM+49PC+49SR+68CA+23A+25D+25E3+69+70SC+49PB+70SE+23PF+49FA+76+49AA+68CC+23SS+25FD+25XR+49CS+49MB+49RT+25E5+29FI+29PT+49C+49MN+49TA+49VV+68CB+72N,all other species,35847,
