@@ -121,6 +121,13 @@ for (i in seq_len(nrow(model$env_scaling))) {
   parameters[[paste0("env_scaling.", v, ".scale")]]  <- torch_tensor(model$env_scaling$scale[i],  dtype = torch_float64())
 }
 torch_save(parameters, file.path(FIT_DIR, "parameters.pt"))
+## model$history: one unnamed row per epoch in FINN's fixed column order (dbh, ba,
+## trees, growth, mortality, regeneration, a seventh unused slot), baseline-scaled
+hist <- as.data.table(do.call(rbind, model$history))
+setnames(hist, paste0("V", 1:7), c("dbh", "ba", "trees", "growth", "mortality", "regeneration", "unused"), skip_absent = TRUE)
+hist[, epoch := .I]
+fwrite(hist, file.path(CAL_DIR, "loss_history.csv"))
+fwrite(hist, file.path(FIT_DIR, "loss_history.csv"))
 
 ## ---- 3b. round trip: the package's build_model() must reproduce this model bit for bit ----
 ## (name-matched copy of every tensor, env networks included; a mismatch stops build_model)
@@ -137,13 +144,6 @@ roundtrip <- function(m) {
 sim_saved <- roundtrip(model); sim_rebuilt <- roundtrip(rebuilt)
 stopifnot(identical(sim_saved, sim_rebuilt))
 message("round trip: build_model(parameters.pt) reproduces the fitted model bit for bit on ", length(check_ids), " sites")
-## model$history: one unnamed row per epoch in FINN's fixed column order (dbh, ba,
-## trees, growth, mortality, regeneration, a seventh unused slot), baseline-scaled
-hist <- as.data.table(do.call(rbind, model$history))
-setnames(hist, paste0("V", 1:7), c("dbh", "ba", "trees", "growth", "mortality", "regeneration", "unused"), skip_absent = TRUE)
-hist[, epoch := .I]
-fwrite(hist, file.path(CAL_DIR, "loss_history.csv"))
-fwrite(hist, file.path(FIT_DIR, "loss_history.csv"))
 
 ## ---- 4. release metadata and fit_summary.md -----------------------------------------
 ## inst/model/weights.json: what load_model() checks. The asset URL follows the
