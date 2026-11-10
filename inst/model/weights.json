@@ -1,13 +1,22 @@
 {
   "variants": {
     "process": {
-      "tag": "v0.0.0.9000",
+      "tag": "v0.1.0",
       "file": "parameters.pt",
-      "url": "",
-      "sha256": "",
+      "url": "https://github.com/FINNverse/FINN-model-IFN-France/releases/download/v0.1.0/parameters.pt",
+      "sha256": "f278626cc0a3d5625a8e6437d98d974d4150311bc105e7e042717391351a0218",
+      "model_file": "model.pt",
+      "model_url": "https://github.com/FINNverse/FINN-model-IFN-France/releases/download/v0.1.0/model.pt",
+      "model_sha256": "e3c52b4d830118ab3fce3511c2f68cf931adc98420f7cdca665af6c93991db05",
       "finn_commit": "0848b60",
-      "patches": null,
-      "patch_size": null
+      "finn_version": "0.2.0",
+      "torch_version": "0.15.1",
+      "patches": 1,
+      "patch_size": 0.0706858347057703,
+      "data_version": "fiveyear-v1",
+      "train_set": "train",
+      "epochs": 150,
+      "fitted": "2026-11-10"
     }
   }
 }
