@@ -32,5 +32,7 @@ pins every raw layer).
 License: GPL (>= 3) for code and fitted parameters; the calibration data keep
 the license of their source (IGN raw data: Licence Ouverte / Open Licence Etalab 2.0,
 citation "IGN – Inventaire forestier national français, Données brutes, Campagnes
-annuelles 2005 et suivantes, https://inventaire-forestier.ign.fr/dataIFN/";
-WorldClim 2.1: CC BY-SA 4.0).
+annuelles 2005 et suivantes, https://inventaire-forestier.ign.fr/dataIFN/").
+Climate normals: WorldClim 2.1 (Fick & Hijmans 2017, doi:10.1002/joc.5086), free for
+academic and other non-commercial use; the rasters are not redistributed, only values
+extracted at the plot locations are included.
