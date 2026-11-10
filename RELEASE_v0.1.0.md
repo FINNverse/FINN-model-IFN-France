@@ -3,7 +3,14 @@
 Prepared 2026-11-10. Nothing here has been executed; tag, push and release only
 after the go. All commands from the repository root.
 
-## Commit to tag: `cbbd214` on branch `release-v0.1.0` (NOT on `main`)
+## Commit to tag: `399541e` on branch `release-v0.1.0` (NOT on `main`)
+
+`399541e` ("WorldClim licence stated correctly ...") is the tip of the release
+branch: the release commit `cbbd214`, the checklist commit `a23a2ac` and the
+licence correction (README, NEWS, PROVENANCE and the script writing it,
+release notes: WorldClim is not CC BY-SA 4.0, it is free for academic and other
+non-commercial use, rasters not redistributed). The same correction is on
+`main` as `3df3c3d`.
 
 `main` cannot be tagged for v0.1.0: commit `7f6564c` ("v0.2 audit, species rule
 trade-off and fiveyear-v2 preparation, six pilots, production candidate")
@@ -16,7 +23,8 @@ v0.1 parameter file fails: `parameters.pt lacks env_scaling.gest.center`
 
 Therefore the release lives on `release-v0.1.0`, branched from `bd30ddd` (the
 last v0.1 commit: production fit, release assets, NEWS) plus the release commit
-`cbbd214` ("FINNmodelIFNFrance 0.1.0: version, FINN pinned at 0848b60, ...").
+`cbbd214` ("FINNmodelIFNFrance 0.1.0: version, FINN pinned at 0848b60, ...")
+and the two commits after it (checklist, licence correction).
 On that branch `R/`, `inst/model/`, `DESCRIPTION` 0.1.0, vignette and
 `calibration/` are the v0.1 package and pipeline; `calibration/`, `hpc/`,
 `logs/` and this file are excluded from the build by `.Rbuildignore`. `main`
@@ -50,7 +58,7 @@ release asset.)
 shasum -a 256 ../../FINN-zoo-data/frnfi/fits/fiveyear-v1-process/parameters.pt ../../FINN-zoo-data/frnfi/fits/fiveyear-v1-process/model.pt
 
 # 1. tag the release commit on the release branch
-git tag -a v0.1.0 cbbd214 -m "FINNmodelIFNFrance 0.1.0: first fitted release (variant process), FINN 0.2.0 commit 0848b60"
+git tag -a v0.1.0 399541e -m "FINNmodelIFNFrance 0.1.0: first fitted release (variant process), FINN 0.2.0 commit 0848b60"
 
 # 2. push the release branch, main (unchanged by the release) and the tag
 git push origin release-v0.1.0
@@ -72,9 +80,9 @@ tmp=$(mktemp -d) && gh release download v0.1.0 --repo FINNverse/FINN-model-IFN-F
 gh repo edit FINNverse/FINN-model-IFN-France --visibility public --accept-visibility-change-consequences
 ```
 
-Note: `RELEASE_NOTES_v0.1.0.md` and this file are committed on
-`release-v0.1.0` (after the tagged commit); run the `gh release create` from
-that branch, or point `--notes-file` at the file in the branch's checkout.
+Note: `RELEASE_NOTES_v0.1.0.md` and this file live on `release-v0.1.0` (not
+on `main`); run the `gh release create` from that branch's checkout, or point
+`--notes-file` at the file there.
 
 ## After the release
 
