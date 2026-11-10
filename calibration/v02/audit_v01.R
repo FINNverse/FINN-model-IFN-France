@@ -31,7 +31,11 @@ PARAMS <- list(period = 5L, patch_size_ha = pi * 15^2 / 1e4, dbh_breaks = c(15, 
 P <- PARAMS$period
 P1 <- fread(file.path(FIT_DIR, "validation", "predictions.csv"))
 site <- fread(file.path(DATA_DIR, "prepared", "fiveyear-v1", "site_table.csv"))
-P1 <- merge(P1, site[, .(siteName = as.character(IDP), GEST)], by = "siteName", all.x = TRUE)
+## set-specific siteIDs -> IDP (the sets renumber their sites)
+ids <- rbind(cbind(set = "test",    fread(file.path(DATA_DIR, "prepared", "fiveyear-v1", "train", "siteID_dt.csv"))[, .(siteID, IDP)]),
+             cbind(set = "holdout", fread(file.path(DATA_DIR, "prepared", "fiveyear-v1", "holdout_blocked", "siteID_dt.csv"))[, .(siteID, IDP)]))
+P1 <- merge(P1, ids, by = c("set", "siteID"), all.x = TRUE)
+P1 <- merge(P1, site[, .(IDP, GEST)], by = "IDP", all.x = TRUE)
 H <- P1[set == "holdout"]
 H[, dcls := cut(dbh_0, c(0, PARAMS$dbh_breaks, Inf))]
 

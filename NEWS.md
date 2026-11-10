@@ -20,3 +20,20 @@
 * `build_model()` rebuilds the model from the released named list of parameter
   tensors, failing loudly on missing or unexpected names; `inst/model/species.csv`
   and `covariates.csv` describe the inputs; quickstart vignette.
+
+## Towards v0.2.0 (in progress, 2026-11-10)
+
+* Correction of the v0.1 verdict: "mortality overpredicted 3.6x" compared annual
+  observed deaths with the 5-year predicted probability. Counted per tallied tree
+  the v0.1 model overpredicts natural mortality about 1.5x (5-yr 5.6 % vs 3.6 %);
+  the site-level target was inflated by annualising complete removals of one-tree
+  cohorts. `calibration/AUDIT_v02.md`.
+* Prepared data `fiveyear-v2`: species set S of 30 (no "other"), plots with
+  species outside S < 2 % of the start-census basal area (80 % of the plots),
+  total removal (incl. cuts) as the mortality target with the IGN management
+  trace `gest` as covariate, recruits by the back-modelled start diameter, a
+  per-tree table, end-census out-of-S strata for evaluation.
+* v0.2 pilots (one change each: cosine, frozen theta + fixed cap in count space,
+  per-tree removal loss, mortality floor removed, shade-only class) and the
+  production candidate `calibration/v02/fit.R`; `build_model()` now builds the
+  v0.2 structure (30 species, three covariates, fixed cap as a buffer).

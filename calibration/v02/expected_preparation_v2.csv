@@ -1,0 +1,288 @@
+set,species,species_name,quantity,value
+national,,,sites,59543
+train,,,sites,44580
+holdout_blocked,,,sites,14963
+pilot2000,,,sites,2000
+holdout1000,,,sites,1000
+national,,,obs_rows,2203091
+train,,,obs_rows,1649460
+holdout_blocked,,,obs_rows,553631
+pilot2000,,,obs_rows,74000
+holdout1000,,,obs_rows,37000
+national,,,cohorts,741175
+train,,,cohorts,557848
+holdout_blocked,,,cohorts,183327
+pilot2000,,,cohorts,25362
+holdout1000,,,cohorts,12308
+national,,,tallied_trees,740701
+train,,,tallied_trees,557484
+holdout_blocked,,,tallied_trees,183217
+pilot2000,,,tallied_trees,25339
+holdout1000,,,tallied_trees,12300
+national,,,virtual_trees_t0,3197868
+train,,,virtual_trees_t0,2411127
+holdout_blocked,,,virtual_trees_t0,786741
+pilot2000,,,virtual_trees_t0,110659
+holdout1000,,,virtual_trees_t0,52843
+national,,,ba_ha_t5_mean,25.141
+train,,,ba_ha_t5_mean,25.278
+holdout_blocked,,,ba_ha_t5_mean,24.733
+pilot2000,,,ba_ha_t5_mean,25.621
+holdout1000,,,ba_ha_t5_mean,25.334
+national,,,trees_ha_t5_mean,704.2
+train,,,trees_ha_t5_mean,708.51
+holdout_blocked,,,trees_ha_t5_mean,691.35
+pilot2000,,,trees_ha_t5_mean,722.44
+holdout1000,,,trees_ha_t5_mean,697.38
+national,,,growth_annual_mean,0.0155
+train,,,growth_annual_mean,0.015516
+holdout_blocked,,,growth_annual_mean,0.01545
+pilot2000,,,growth_annual_mean,0.015144
+holdout1000,,,growth_annual_mean,0.014885
+national,,,n_at_risk,740701
+train,,,n_at_risk,557484
+holdout_blocked,,,n_at_risk,183217
+pilot2000,,,n_at_risk,25339
+holdout1000,,,n_at_risk,12300
+national,,,n_died,44464.27
+train,,,n_died,33673.94
+holdout_blocked,,,n_died,10790.33
+pilot2000,,,n_died,1489.95
+holdout1000,,,n_died,599.88
+national,,,removal_annual_pooled,0.06003
+train,,,removal_annual_pooled,0.060403
+holdout_blocked,,,removal_annual_pooled,0.058894
+pilot2000,,,removal_annual_pooled,0.0588
+holdout1000,,,removal_annual_pooled,0.048771
+national,,,natural_annual_pooled,0.019797
+train,,,natural_annual_pooled,0.019887
+holdout_blocked,,,natural_annual_pooled,0.019522
+pilot2000,,,natural_annual_pooled,0.019587
+holdout1000,,,natural_annual_pooled,0.017312
+national,,,reg_ha_5yr_mean,42.2004
+train,,,reg_ha_5yr_mean,42.362
+holdout_blocked,,,reg_ha_5yr_mean,41.719
+pilot2000,,,reg_ha_5yr_mean,40.5739
+holdout1000,,,reg_ha_5yr_mean,38.0699
+national,1,Abies alba,sites_present_t5,5124
+national,2,Acer campestre,sites_present_t5,4088
+national,3,Acer pseudoplatanus,sites_present_t5,3094
+national,4,Alnus glutinosa,sites_present_t5,1567
+national,5,Arbutus unedo,sites_present_t5,496
+national,6,Betula pendula,sites_present_t5,4778
+national,7,Carpinus betulus,sites_present_t5,11642
+national,8,Castanea sativa,sites_present_t5,6994
+national,9,Corylus avellana,sites_present_t5,3376
+national,10,Crataegus monogyna,sites_present_t5,2553
+national,11,Fagus sylvatica,sites_present_t5,13040
+national,12,Fraxinus excelsior,sites_present_t5,7349
+national,13,Ilex aquifolium,sites_present_t5,1087
+national,14,Larix decidua,sites_present_t5,659
+national,15,Picea abies,sites_present_t5,4685
+national,16,Pinus halepensis,sites_present_t5,926
+national,17,Pinus mugo,sites_present_t5,288
+national,18,Pinus nigra,sites_present_t5,1923
+national,19,Pinus pinaster,sites_present_t5,3447
+national,20,Pinus sylvestris,sites_present_t5,6312
+national,21,Populus tremula,sites_present_t5,2396
+national,22,Prunus avium,sites_present_t5,3772
+national,23,Pseudotsuga menziesii,sites_present_t5,2487
+national,24,Quercus ilex,sites_present_t5,2309
+national,25,Quercus petraea,sites_present_t5,12749
+national,26,Quercus pubescens,sites_present_t5,6529
+national,27,Quercus pyrenaica,sites_present_t5,664
+national,28,Quercus robur,sites_present_t5,16142
+national,29,Robinia pseudoacacia,sites_present_t5,1938
+national,30,Salix caprea,sites_present_t5,1827
+national,31,Sorbus aria,sites_present_t5,1639
+national,32,Sorbus torminalis,sites_present_t5,1970
+national,33,Tilia cordata,sites_present_t5,999
+national,34,Tilia platyphyllos,sites_present_t5,845
+national,35,Ulmus minor,sites_present_t5,1275
+national,36,other broadleaf,sites_present_t5,8120
+national,37,other conifer,sites_present_t5,1653
+national,1,Abies alba,ba_sum,6399.104
+national,2,Acer campestre,ba_sum,1226.071
+national,3,Acer pseudoplatanus,ba_sum,1263.653
+national,4,Alnus glutinosa,ba_sum,1275.49
+national,5,Arbutus unedo,ba_sum,156.361
+national,6,Betula pendula,ba_sum,1897.199
+national,7,Carpinus betulus,ba_sum,6200.783
+national,8,Castanea sativa,ba_sum,6223.316
+national,9,Corylus avellana,ba_sum,613.203
+national,10,Crataegus monogyna,ba_sum,311.291
+national,11,Fagus sylvatica,ba_sum,10538.657
+national,12,Fraxinus excelsior,ba_sum,3885.383
+national,13,Ilex aquifolium,ba_sum,158.899
+national,14,Larix decidua,ba_sum,709.866
+national,15,Picea abies,ba_sum,5760.657
+national,16,Pinus halepensis,ba_sum,795.604
+national,17,Pinus mugo,ba_sum,302.005
+national,18,Pinus nigra,ba_sum,2282.343
+national,19,Pinus pinaster,ba_sum,4434.132
+national,20,Pinus sylvestris,ba_sum,5975.319
+national,21,Populus tremula,ba_sum,1101.466
+national,22,Prunus avium,ba_sum,1073.052
+national,23,Pseudotsuga menziesii,ba_sum,3797.914
+national,24,Quercus ilex,ba_sum,1764.974
+national,25,Quercus petraea,ba_sum,11385.511
+national,26,Quercus pubescens,ba_sum,5318.838
+national,27,Quercus pyrenaica,ba_sum,320.544
+national,28,Quercus robur,ba_sum,12478.586
+national,29,Robinia pseudoacacia,ba_sum,1337.321
+national,30,Salix caprea,ba_sum,657.607
+national,31,Sorbus aria,ba_sum,301.065
+national,32,Sorbus torminalis,ba_sum,291.866
+national,33,Tilia cordata,ba_sum,456.8
+national,34,Tilia platyphyllos,ba_sum,381.932
+national,35,Ulmus minor,ba_sum,263.379
+national,36,other broadleaf,ba_sum,3478.424
+national,37,other conifer,ba_sum,995.942
+national,1,Abies alba,n_at_risk,36798
+national,2,Acer campestre,n_at_risk,10777
+national,3,Acer pseudoplatanus,n_at_risk,8760
+national,4,Alnus glutinosa,n_at_risk,8498
+national,5,Arbutus unedo,n_at_risk,2855
+national,6,Betula pendula,n_at_risk,17514
+national,7,Carpinus betulus,n_at_risk,62340
+national,8,Castanea sativa,n_at_risk,47611
+national,9,Corylus avellana,n_at_risk,13080
+national,10,Crataegus monogyna,n_at_risk,5468
+national,11,Fagus sylvatica,n_at_risk,66856
+national,12,Fraxinus excelsior,n_at_risk,28959
+national,13,Ilex aquifolium,n_at_risk,2223
+national,14,Larix decidua,n_at_risk,3953
+national,15,Picea abies,n_at_risk,36703
+national,16,Pinus halepensis,n_at_risk,4640
+national,17,Pinus mugo,n_at_risk,2090
+national,18,Pinus nigra,n_at_risk,13687
+national,19,Pinus pinaster,n_at_risk,25954
+national,20,Pinus sylvestris,n_at_risk,37854
+national,21,Populus tremula,n_at_risk,8291
+national,22,Prunus avium,n_at_risk,7988
+national,23,Pseudotsuga menziesii,n_at_risk,20112
+national,24,Quercus ilex,n_at_risk,21948
+national,25,Quercus petraea,n_at_risk,64487
+national,26,Quercus pubescens,n_at_risk,43488
+national,27,Quercus pyrenaica,n_at_risk,2124
+national,28,Quercus robur,n_at_risk,65039
+national,29,Robinia pseudoacacia,n_at_risk,11195
+national,30,Salix caprea,n_at_risk,7181
+national,31,Sorbus aria,n_at_risk,3865
+national,32,Sorbus torminalis,n_at_risk,3666
+national,33,Tilia cordata,n_at_risk,3639
+national,34,Tilia platyphyllos,n_at_risk,2724
+national,35,Ulmus minor,n_at_risk,3250
+national,36,other broadleaf,n_at_risk,28137
+national,37,other conifer,n_at_risk,6947
+national,1,Abies alba,n_died,1317.07
+national,2,Acer campestre,n_died,428.65
+national,3,Acer pseudoplatanus,n_died,389.44
+national,4,Alnus glutinosa,n_died,522.8
+national,5,Arbutus unedo,n_died,129.62
+national,6,Betula pendula,n_died,2095.78
+national,7,Carpinus betulus,n_died,3396.39
+national,8,Castanea sativa,n_died,4488.22
+national,9,Corylus avellana,n_died,1415.54
+national,10,Crataegus monogyna,n_died,398.54
+national,11,Fagus sylvatica,n_died,2117.59
+national,12,Fraxinus excelsior,n_died,2656.85
+national,13,Ilex aquifolium,n_died,77.48
+national,14,Larix decidua,n_died,82.88
+national,15,Picea abies,n_died,4483.58
+national,16,Pinus halepensis,n_died,115.24
+national,17,Pinus mugo,n_died,37.28
+national,18,Pinus nigra,n_died,603.87
+national,19,Pinus pinaster,n_died,2824.87
+national,20,Pinus sylvestris,n_died,1860.7
+national,21,Populus tremula,n_died,1007.34
+national,22,Prunus avium,n_died,496.48
+national,23,Pseudotsuga menziesii,n_died,1299.35
+national,24,Quercus ilex,n_died,522.38
+national,25,Quercus petraea,n_died,1986.03
+national,26,Quercus pubescens,n_died,1096.64
+national,27,Quercus pyrenaica,n_died,111.67
+national,28,Quercus robur,n_died,2490.95
+national,29,Robinia pseudoacacia,n_died,959.32
+national,30,Salix caprea,n_died,1108.54
+national,31,Sorbus aria,n_died,213.06
+national,32,Sorbus torminalis,n_died,168.33
+national,33,Tilia cordata,n_died,164.65
+national,34,Tilia platyphyllos,n_died,89.07
+national,35,Ulmus minor,n_died,369.79
+national,36,other broadleaf,n_died,2087.79
+national,37,other conifer,n_died,850.49
+national,1,Abies alba,n_died_natural,365.03
+national,2,Acer campestre,n_died_natural,92.32
+national,3,Acer pseudoplatanus,n_died_natural,110.91
+national,4,Alnus glutinosa,n_died_natural,242.29
+national,5,Arbutus unedo,n_died_natural,43.53
+national,6,Betula pendula,n_died_natural,765.09
+national,7,Carpinus betulus,n_died_natural,776.78
+national,8,Castanea sativa,n_died_natural,1604.55
+national,9,Corylus avellana,n_died_natural,777.81
+national,10,Crataegus monogyna,n_died_natural,240.47
+national,11,Fagus sylvatica,n_died_natural,486.06
+national,12,Fraxinus excelsior,n_died_natural,1381.81
+national,13,Ilex aquifolium,n_died_natural,21.24
+national,14,Larix decidua,n_died_natural,32.42
+national,15,Picea abies,n_died_natural,792.73
+national,16,Pinus halepensis,n_died_natural,47.6
+national,17,Pinus mugo,n_died_natural,27.24
+national,18,Pinus nigra,n_died_natural,106.33
+national,19,Pinus pinaster,n_died_natural,227.51
+national,20,Pinus sylvestris,n_died_natural,636.31
+national,21,Populus tremula,n_died_natural,483.14
+national,22,Prunus avium,n_died_natural,265.17
+national,23,Pseudotsuga menziesii,n_died_natural,123.45
+national,24,Quercus ilex,n_died_natural,115.7
+national,25,Quercus petraea,n_died_natural,645.23
+national,26,Quercus pubescens,n_died_natural,419.3
+national,27,Quercus pyrenaica,n_died_natural,19.19
+national,28,Quercus robur,n_died_natural,858.25
+national,29,Robinia pseudoacacia,n_died_natural,283.24
+national,30,Salix caprea,n_died_natural,735.72
+national,31,Sorbus aria,n_died_natural,156.44
+national,32,Sorbus torminalis,n_died_natural,74.05
+national,33,Tilia cordata,n_died_natural,29.31
+national,34,Tilia platyphyllos,n_died_natural,21.46
+national,35,Ulmus minor,n_died_natural,267.62
+national,36,other broadleaf,n_died_natural,1218.95
+national,37,other conifer,n_died_natural,169.03
+national,1,Abies alba,reg_sum,77427.11
+national,2,Acer campestre,reg_sum,59417.85
+national,3,Acer pseudoplatanus,reg_sum,61525.76
+national,4,Alnus glutinosa,reg_sum,27671.74
+national,5,Arbutus unedo,reg_sum,17245.32
+national,6,Betula pendula,reg_sum,91630.81
+national,7,Carpinus betulus,reg_sum,277962.34
+national,8,Castanea sativa,reg_sum,208500.05
+national,9,Corylus avellana,reg_sum,184676.32
+national,10,Crataegus monogyna,reg_sum,47307.92
+national,11,Fagus sylvatica,reg_sum,211527.53
+national,12,Fraxinus excelsior,reg_sum,98350.68
+national,13,Ilex aquifolium,reg_sum,23385.17
+national,14,Larix decidua,reg_sum,4569.52
+national,15,Picea abies,reg_sum,43841.88
+national,16,Pinus halepensis,reg_sum,12336.28
+national,17,Pinus mugo,reg_sum,3013.33
+national,18,Pinus nigra,reg_sum,19919.13
+national,19,Pinus pinaster,reg_sum,95535.41
+national,20,Pinus sylvestris,reg_sum,55527.39
+national,21,Populus tremula,reg_sum,39357.25
+national,22,Prunus avium,reg_sum,31576.34
+national,23,Pseudotsuga menziesii,reg_sum,34434.06
+national,24,Quercus ilex,reg_sum,74371.34
+national,25,Quercus petraea,reg_sum,91984.48
+national,26,Quercus pubescens,reg_sum,78035.44
+national,27,Quercus pyrenaica,reg_sum,4357.31
+national,28,Quercus robur,reg_sum,88617.47
+national,29,Robinia pseudoacacia,reg_sum,68302.23
+national,30,Salix caprea,reg_sum,58172.9
+national,31,Sorbus aria,reg_sum,17613.15
+national,32,Sorbus torminalis,reg_sum,23031.49
+national,33,Tilia cordata,reg_sum,13864.16
+national,34,Tilia platyphyllos,reg_sum,9068.29
+national,35,Ulmus minor,reg_sum,38720.63
+national,36,other broadleaf,reg_sum,199389.31
+national,37,other conifer,reg_sum,20470.86

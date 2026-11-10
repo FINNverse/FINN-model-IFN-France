@@ -1,31 +1,28 @@
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=
-## FINN-model-IFN-France | calibration/v02/pilot_A_v01recipe.R
+## FINN-model-IFN-France | calibration/v02/pilot_cosine.R
 ##
-## WHAT   v0.2 pilot A, the CONTROL: the v0.1 fitting recipe (hidden env
-##        networks, free recruitment dispersion, trainable cap K initialised at
-##        50/ha/yr, NB per hectare, constant learning rate) on the v2 data with
-##        the management trace `gest` as a covariate. The only differences to
-##        pilot B are the regeneration settings, so A vs B isolates what the
-##        frozen theta, the count-space NB and the fixed K do.
-## HYPOTHESIS  A reproduces the v0.1 pathology on the pilot set: theta collapses,
-##        recruitment 3-4x too high, stems drift up.
-## DATA   <DATA_DIR>/prepared/fiveyear-v2/pilot2000 (fit), holdout1000 (pilot_eval.R)
-## RUN    Rscript calibration/v02/pilot_A_v01recipe.R     (one thread, ~20 min)
-## OUTPUT <DATA_DIR>/fits/v02-pilots/A_v01recipe/{model.pt, loss_history.csv, settings.md}
+## WHAT   v0.2 pilot COSINE = pilot_baseline.R with ONE change: a cosine
+##        learning-rate decay over the 200 epochs (fit(lr_scheduler = "cosine")).
+## HYPOTHESIS  The v0.1 fit plateaued (loss flat from epoch ~50, parameters still
+##        moving); the decay settles the parameters (BWI lesson 10) without
+##        changing what is fitted.
+## DATA   <DATA_DIR>/prepared/fiveyear-v2/pilot2000; holdout1000 (pilot_eval.R)
+## RUN    Rscript calibration/v02/pilot_cosine.R     (one thread, ~20 min)
+## OUTPUT <DATA_DIR>/fits/v02-pilots/cosine/{model.pt, loss_history.csv, settings.md}
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=
 .libPaths(c(path.expand("~/R/lib-finn-0848b60"), .libPaths()))
 suppressPackageStartupMessages({ library(FINN); library(data.table); library(torch) })
 torch_set_num_threads(1L)
 DATA_DIR <- file.path("..", "..", "FINN-zoo-data", "frnfi")
-FIT_DIR  <- file.path(DATA_DIR, "fits", "v02-pilots", "A_v01recipe"); dir.create(FIT_DIR, showWarnings = FALSE, recursive = TRUE)
+FIT_DIR  <- file.path(DATA_DIR, "fits", "v02-pilots", "cosine"); dir.create(FIT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 PARAMS <- list(
   prep_version = "fiveyear-v2", train_set = "pilot2000",
   patch_size_ha = pi * 15^2 / 1e4, n_patches = 1L,
   env_vars      = c("tavg_c", "prec_mm", "gest"),
   recruits_dbh  = 8.3, hidden = c(20L, 20L), dropout = 0.1, reg_floor = 1e-3,
-  reg_K_init    = 50,                                    # v0.1: trainable cap, init 50/ha/yr
-  epochs = 200L, batchsize = 200L, lr = 0.01, lr_scheduler = "none",   # v0.1: constant lr
+  reg_K_init    = 50,
+  epochs = 200L, batchsize = 200L, lr = 0.01, lr_scheduler = "cosine",   # THE change: cosine decay to ~0 over the 200 epochs
   weights = "auto",
   loss_family = c(dbh = "mse", ba = "mse", trees = "poisson", growth = "mse", mortality = "binomial", regeneration = "nbinom"),
   checkpoints = 10L, device = "cpu", seed = 1L
@@ -43,10 +40,8 @@ model <- finn(
   growth_process       = createProcess(~ tavg_c + prec_mm + gest, FINN::growth, hidden = PARAMS$hidden, dropout = PARAMS$dropout, optimizeSpecies = TRUE, optimizeEnv = TRUE),
   mortality_process    = createProcess(~ tavg_c + prec_mm + gest, FINN::mortality, hidden = PARAMS$hidden, dropout = PARAMS$dropout, optimizeSpecies = TRUE, optimizeEnv = TRUE),
   regeneration_process = createProcess(~ tavg_c + prec_mm + gest, FINN::regeneration_saturation, hidden = PARAMS$hidden, dropout = PARAMS$dropout,
-                                       optimizeSpecies = TRUE, optimizeEnv = TRUE,
-                                       custom_parameters = list(reg_logK = rep(log(PARAMS$reg_K_init), n_species)))
+                                       optimizeSpecies = TRUE, optimizeEnv = TRUE, custom_parameters = list(reg_logK = rep(log(PARAMS$reg_K_init), n_species)))
 )
-## torch >= 0.14 has the faster ignite Adam (FINN's default); older torch (the cluster library) falls back to optim_adam
 optimizer <- if (exists("optim_ignite_adam", envir = asNamespace("torch"))) torch::optim_ignite_adam else torch::optim_adam
 FINN.seed(PARAMS$seed); t0 <- Sys.time()
 fit(model, env = env, data = obs, init_cohort = init_cohort,
@@ -59,7 +54,7 @@ torch_save(model, file.path(FIT_DIR, "model.pt"))
 hist <- as.data.table(do.call(rbind, model$history)); setnames(hist, paste0("V", 1:7), c("dbh", "ba", "trees", "growth", "mortality", "regeneration", "unused"), skip_absent = TRUE); hist[, epoch := .I]
 fwrite(hist, file.path(FIT_DIR, "loss_history.csv"))
 th <- as.numeric(model$par_theta_recruits$detach()); K <- exp(as.numeric(model$reg_logK$detach()))
-writeLines(c("# pilot A_v01recipe (control)", sprintf("%d sites, %d epochs, %.0f s (%.1f s/epoch); v0.1 regeneration settings on v2 data + gest", uniqueN(obs$siteID), PARAMS$epochs, secs, secs / PARAMS$epochs),
+writeLines(c("# pilot cosine", sprintf("%d sites, %d epochs, %.0f s (%.1f s/epoch); baseline + cosine lr decay", uniqueN(obs$siteID), PARAMS$epochs, secs, secs / PARAMS$epochs),
              sprintf("final theta: median %.3f (min %.3f, max %.3f); K/ha/yr: median %.1f (min %.2f, max %.0f)", median(th), min(th), max(th), median(K), min(K), max(K)),
              "", "```r", capture.output(str(PARAMS, give.attr = FALSE)), "```"), file.path(FIT_DIR, "settings.md"))
-message(sprintf("done A_v01recipe: %.1f s/epoch; theta median %.3f", secs / PARAMS$epochs, median(th))); print(hist[c(1, 50, 100, 150, 200)])
+message(sprintf("done cosine: %.1f s/epoch; theta median %.3f", secs / PARAMS$epochs, median(th))); print(hist[c(1, 50, 100, 150, 200)])
