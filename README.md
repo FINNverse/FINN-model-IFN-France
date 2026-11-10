@@ -5,17 +5,23 @@ A fitted [FINN](https://github.com/FINNverse/FINN) forest model calibrated to th
 simulation tool (R package `FINNmodelIFNFrance`). The model card is in the
 [FINN-zoo](https://finnverse.github.io/FINN-zoo/models.html).
 
-**Status: in preparation, no release yet** (the first production fit is running; see NEWS.md).
+**Current release: v0.1.0** (see NEWS.md). The fitted parameters are release assets of this repository;
+`load_model()` downloads them once and checks their sha256.
 
 ```r
-remotes::install_github("FINNverse/FINN")
-remotes::install_github("FINNverse/FINN-model-IFN-France")
+remotes::install_github("FINNverse/FINN@0848b60")               # FINN 0.2.0, the version the model was fitted with
+remotes::install_github("FINNverse/FINN-model-IFN-France@v0.1.0")
 library(FINNmodelIFNFrance)
+torch::torch_set_num_threads(1L)   # pinned: the fit and the validation ran single-threaded
 m = load_model()          # downloads the released parameters once, checks sha256, rebuilds with the installed FINN
 species_table()           # 35 species + "other": index, Latin name, IGN ESPAR code, French name
-model_info()              # release tag, files, sha256, FINN commit, patch settings
+model_info()              # release tag, files, sha256, FINN commit, patch settings, pinned threads and batchsize
 vignette("quickstart", package = "FINNmodelIFNFrance")
 ```
+
+Simulations are run with one torch thread and an explicit `batchsize` (100 sites per `simulateForest()` batch,
+the value pinned in `model_info()`; `simulate_model()` uses it by default). A different batchsize changes the
+random draws but not the model.
 
 What the model is: a FINN process model (growth, mortality, saturating regeneration, competition) for 35 French
 tree species + "other", annual timestep, two WorldClim 2.1 covariates (`tavg_c`, `prec_mm`; see

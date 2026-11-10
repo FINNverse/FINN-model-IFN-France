@@ -16,6 +16,10 @@
       "data_version": "fiveyear-v1",
       "train_set": "train",
       "epochs": 150,
+      "weights": "auto",
+      "weight_scale": "auto",
+      "threads": 1,
+      "sim_batchsize": 100,
       "fitted": "2026-11-10"
     }
   }
