@@ -419,7 +419,7 @@ wc <- rbindlist(lapply(names(PARAMS$env_rasters), function(nm) {
 }))
 prov <- c(prov, "## Climate: WorldClim 2.1 (02_prepare_fiveyear_v1.R)", "",
           "Source: https://www.worldclim.org/data/worldclim21.html (Fick & Hijmans 2017), 1970-2000 normals, 30 arc-seconds,",
-          "files wc2.1_30s_bio.zip and wc2.1_30s_elev.zip, licence CC BY-SA 4.0; local copies pulled 2019-09-09 (file dates),",
+          "files wc2.1_30s_bio.zip and wc2.1_30s_elev.zip; licence: WorldClim's own terms, free for academic and other non-commercial use, no redistribution without permission (the rasters are not redistributed, only values extracted at the plot locations are included); local copies pulled 2019-09-09 (file dates),",
           "values extracted at the fuzzed IGN plot centres (1 km cell) on the date of PREPARATION.md.", "",
           "| variable | file | SHA-256 | size (bytes) |", "|---|---|---|---|",
           wc[, sprintf("| %s | %s | %s | %d |", variable, file, sha256, size)], "")
