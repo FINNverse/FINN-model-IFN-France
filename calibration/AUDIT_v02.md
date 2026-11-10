@@ -155,7 +155,11 @@ competition of dropped trees negligible (776 out-of-S trees among 595,291 on
 the kept plots) and leaves option (b) little to add. Population claim for the
 card: valid for stands where species outside S hold < 2 % of the basal area at
 the start of the interval = 80 % of the inventory's forest plots in the 2010-2020
-cohort. Built as `fiveyear-v2` (48,190 plots; GEST-recorded, WorldClim pixel).
+cohort. Built as `fiveyear-v2`: 47,876 plots after the WorldClim join and the
+diameter screen (train 35,783 in 66 blocks, holdout_blocked 12,093 in 16 blocks,
+pilot2000 / holdout1000); per tallied tree the 5-year removal share is 11.8 %
+(2.49 %/yr; natural 4.9 %); end-census strata < 1 % 46,991 / 1-5 % 991 / > 5 % 208
+plots.
 Out-of-S trees on kept plots are dropped (option a); the option-(b) tables
 (one shade-only class, index 31, NA observations) are written for the pilot.
 
