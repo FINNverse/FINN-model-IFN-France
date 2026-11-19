@@ -46,6 +46,11 @@ build_model = function(variant = "process", parameters, version = c("auto", "v0.
   env_vars  = c("tavg_c", "prec_mm", "gest")
   hidden    = c(20L, 20L)
   scal_names = paste0("env_scaling.", rep(env_vars, each = 2), c(".center", ".scale"))
+  ## the released v0.1.0 parameters (35 species + "other", no gest) belong to the code at the v0.1.0 tag
+  if (is.null(parameters[["env_scaling.gest.center"]]) && !is.null(parameters[["env_scaling.tavg_c.center"]]))
+    stop("These are the v0.1.0 parameters, which this development version cannot load. ",
+         "Install the released model with remotes::install_github(\"FINNverse/FINN-model-IFN-France@v0.1.0\").",
+         call. = FALSE)
   for (nm in c(scal_names, "buffer.reg_logK", "par_theta_recruits_raw"))
     if (is.null(parameters[[nm]])) stop("parameters.pt lacks ", nm, call. = FALSE)
   ## the fixed cap K comes from the parameter file itself (a buffer, not trainable);

@@ -5,11 +5,13 @@ A fitted [FINN](https://github.com/FINNverse/FINN) forest model calibrated to th
 simulation tool (R package `FINNmodelIFNFrance`). The model card is in the
 [FINN-zoo](https://finnverse.github.io/FINN-zoo/models.html).
 
-**Status: in preparation, no release yet** (the first production fit is running; see NEWS.md).
+**Current release: v0.1.0** (see NEWS.md). This branch holds the v0.2 model in preparation (30 species,
+management covariate `gest`), whose parameters are not released yet; it cannot load the v0.1.0 parameters.
+To use the released model, install the package at its release tag:
 
 ```r
-remotes::install_github("FINNverse/FINN")
-remotes::install_github("FINNverse/FINN-model-IFN-France")
+remotes::install_github("FINNverse/FINN@0848b60")               # FINN 0.2.0, the version v0.1.0 was fitted with
+remotes::install_github("FINNverse/FINN-model-IFN-France@v0.1.0")
 library(FINNmodelIFNFrance)
 m = load_model()          # downloads the released parameters once, checks sha256, rebuilds with the installed FINN
 species_table()           # 35 species + "other": index, Latin name, IGN ESPAR code, French name
